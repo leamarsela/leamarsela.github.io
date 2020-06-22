@@ -94,3 +94,4 @@ async function getData() {
 
 getData();
 
+setInterval(getData, 86400);
