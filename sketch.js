@@ -16,14 +16,13 @@ const tiles = L.tileLayer(title_url, { attribution });
 tiles.addTo(mapid);
 
 
-
 function month(arg){
     let getmonth = arg.getMonth();
     
     if (String(getmonth).length == 1){
-        return '0' + getmonth;
+        return '0' + (getmonth + 1);
     } else {
-        return getmonth;
+        return (getmonth + 1);
     }
 }
 
@@ -68,11 +67,10 @@ function utcTime(arg) {
     return (dateTime + '-' + monthTime + '-' + yearTime + '; ' + hourTime + ':' + minuteTime);
 }
 
-
 async function getData() {
 
     const now = new Date(Date.now());
-    const before = new Date(now.valueOf() - (30 * 24 * 60 * 60 * 1000));
+    const before = new Date(now.valueOf() - (5 * 24 * 60 * 60 * 1000));
     
     const beforeYear = before.getFullYear();
     const beforeMonth = month(before);
@@ -85,7 +83,6 @@ async function getData() {
     const url = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=' 
                 + beforeYear + '-' + beforeMonth + '-' + beforeDate + '&endtime='
                 + nowYear + '-' + nowMonth + '-' + nowDate;
-    
 
     const response = await fetch(url);
     const data = await response.json();
@@ -96,6 +93,8 @@ async function getData() {
     const locations = [];
     const originalTimes = [];
     const updatedTimes = [];
+
+    console.log(data.features.length);
 
     for(let i = 0; i < data.features.length; i++) {
         const lat = data.features[i].geometry.coordinates[1].toFixed(2);
@@ -113,9 +112,9 @@ async function getData() {
             } else {
                 mags.push(mag);
             }
-    
+            
             locations.push(location);
-    
+            
             const originalTime = data.features[i].properties.time;
             const updatedTime = data.features[i].properties.updated;
     
@@ -123,6 +122,8 @@ async function getData() {
             updatedTimes.push(utcTime(updatedTime));
         }        
     }
+
+    console.log(locations);
 
     // let tBody = document.getElementsByTagName('tbody')[0];
     let tBody = document.getElementById('tData');
