@@ -157,8 +157,12 @@ async function getData() {
             iconUrl: 'circle.png',
             iconSize: [Math.abs(parseFloat(mags[i])), Math.abs(parseFloat(mags[i]))],
             iconAnchor: [0, 0],
+
         });
-        L.marker([lats[i], longs[i]], { icon: myIcon }).addTo(mapid);
+        L.marker([lats[i], longs[i]], { icon: myIcon})
+            .addTo(mapid)
+            .bindPopup(String('No: ' + (i + 1)));
+        
     }
 }
 
