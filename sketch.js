@@ -70,7 +70,7 @@ function utcTime(arg) {
 async function getData() {
 
     const now = new Date(Date.now());
-    const before = new Date(now.valueOf() - (5 * 24 * 60 * 60 * 1000));
+    const before = new Date(now.valueOf() - (30 * 24 * 60 * 60 * 1000));
     
     const beforeYear = before.getFullYear();
     const beforeMonth = month(before);
