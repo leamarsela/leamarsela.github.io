@@ -123,7 +123,6 @@ async function getData() {
         }        
     }
 
-    console.log(locations);
 
     // let tBody = document.getElementsByTagName('tbody')[0];
     let tBody = document.getElementById('tData');
