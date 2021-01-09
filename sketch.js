@@ -94,8 +94,6 @@ async function getData() {
     const originalTimes = [];
     const updatedTimes = [];
 
-    console.log(data.features.length);
-
     for(let i = 0; i < data.features.length; i++) {
         const lat = data.features[i].geometry.coordinates[1].toFixed(2);
         const long = data.features[i].geometry.coordinates[0].toFixed(2);
