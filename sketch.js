@@ -159,7 +159,7 @@ async function getData() {
         });
         L.marker([lats[i], longs[i]], { icon: myIcon})
             .addTo(mapid)
-            .bindPopup(String('<b>No: </b>' + (i + 1)) + ' <br> ' + '<b>' + String(locations[i]) + '</b>');
+            .bindPopup(String('No: ' + (i + 1)) + String('(Magnitude: ' + mags[i] + ')') + ' <br> ' + '<b>' + String(locations[i]) + '</b>' + '');
         
     }
 }
