@@ -85,7 +85,12 @@ async function getData() {
                 + beforeYear + '-' + beforeMonth + '-' + beforeDate + '&endtime='
                 + nowYear + '-' + nowMonth + '-' + nowDate;
 
-    const response = await fetch(url);
+    const response = await fetch(url, {
+       mode: 'cors',
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+      });
     const data = await response.json();
     
     const lats = [];
