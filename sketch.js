@@ -86,7 +86,7 @@ async function getData() {
                 + nowYear + '-' + nowMonth + '-' + nowDate;
 
     const response = await fetch(url, {
-       mode: 'cors',
+       mode: 'no-cors',
         headers: {
             'Access-Control-Allow-Origin': '*'
         }
