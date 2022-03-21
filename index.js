@@ -22,7 +22,7 @@ async function getData() {
   const url = 'https://data.bmkg.go.id/DataMKG/TEWS/gempadirasakan.json';
 
   const response = await fetch(url, {
-    mode: 'cors',
+    mode: 'no-cors',
     headers: {
       'Access-Control-Allow-Origin': '*'
     }
