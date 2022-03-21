@@ -25,7 +25,7 @@ async function getData() {
     mode: 'no-cors',
     headers: {
       'Access-Control-Allow-Origin': '*',
-      "Access-Control-Allow-Credentials" : True
+      "Access-Control-Allow-Credentials" : true
     }
   });
 
