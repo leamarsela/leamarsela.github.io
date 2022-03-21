@@ -24,9 +24,9 @@ async function getData() {
   const response = await fetch(url, {
     mode: 'no-cors',
     headers: {
-      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      "Access-Control-Allow-Credentials" : true
+      "Access-Control-Allow-Credentials" : true,
+      'Content-Type': 'application/json',
     }
   });
 
